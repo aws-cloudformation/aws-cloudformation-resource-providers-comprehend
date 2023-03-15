@@ -52,6 +52,7 @@ public class Translator {
    * * * * * * * * * * * * */
 
   static TaskConfig toSdkTaskConfig(final software.amazon.comprehend.flywheel.TaskConfig taskConfig) {
+    if (taskConfig == null) return null;
     software.amazon.comprehend.flywheel.DocumentClassificationConfig documentClassificationConfig = taskConfig.getDocumentClassificationConfig();
     software.amazon.comprehend.flywheel.EntityRecognitionConfig entityRecognitionConfig = taskConfig.getEntityRecognitionConfig();
     return TaskConfig.builder()
