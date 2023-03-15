@@ -167,6 +167,13 @@ public class TranslatorTest extends AbstractTestBase {
                     .build())
             .build();
 
+    private final ResourceModel MINIMAL_ACTIVE_MODEL_FLYWHEEL_CFN_MODEL = ResourceModel.builder()
+            .flywheelName(TEST_FLYWHEEL_NAME)
+            .dataAccessRoleArn(TEST_DATA_ACCESS_ROLE_ARN)
+            .dataLakeS3Uri(TEST_DATA_LAKE_S3_URI)
+            .activeModelArn(TEST_ACTIVE_MODEL_ARN)
+            .build();
+
     private final ResourceModel FULL_CLR_FLYWHEEL_CFN_MODEL = ResourceModel.builder()
             .flywheelName(TEST_FLYWHEEL_NAME)
             .dataAccessRoleArn(TEST_DATA_ACCESS_ROLE_ARN)
@@ -340,6 +347,9 @@ public class TranslatorTest extends AbstractTestBase {
         CreateFlywheelRequest minimalCLRFlywheelRequest = Translator.translateToCreateRequest(MINIMAL_CLR_FLYWHEEL_CFN_MODEL, TEST_CLIENT_REQUEST_TOKEN, SDK_TAGS);
         assertThat(minimalCLRFlywheelRequest.modelTypeAsString()).isEqualTo(MINIMAL_CLR_FLYWHEEL_CFN_MODEL.getModelType());
         assertThat(minimalCLRFlywheelRequest.taskConfig()).isEqualTo(Translator.toSdkTaskConfig(MINIMAL_CLR_FLYWHEEL_CFN_MODEL.getTaskConfig()));
+
+        CreateFlywheelRequest minimalActiveModelFlywheelRequest = Translator.translateToCreateRequest(MINIMAL_ACTIVE_MODEL_FLYWHEEL_CFN_MODEL, TEST_CLIENT_REQUEST_TOKEN, SDK_TAGS);
+        assertThat(minimalActiveModelFlywheelRequest.activeModelArn()).isEqualTo(MINIMAL_ACTIVE_MODEL_FLYWHEEL_CFN_MODEL.getActiveModelArn());
 
         CreateFlywheelRequest fullCLRFlywheelRequest = Translator.translateToCreateRequest(FULL_CLR_FLYWHEEL_CFN_MODEL, TEST_CLIENT_REQUEST_TOKEN, SDK_TAGS);
         assertThat(fullCLRFlywheelRequest.taskConfig()).isEqualTo(Translator.toSdkTaskConfig(FULL_CLR_FLYWHEEL_CFN_MODEL.getTaskConfig()));
