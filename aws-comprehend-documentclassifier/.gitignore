@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+._*
+
+# Maven outputs
+.classpath
+
+# IntelliJ
+*.iml
+.idea
+out.java
+out/
+.settings
+.project
+
+# auto-generated files
+target/
+aws-comprehend-documentclassifier.zip
+docs/
+
+# env and build artifacts
+env/
+build/
+
+# local testing
+sam-tests/
+inputs/
+
+# Logs
+rpdk.log
+
+# test inputs or testing files with credentials
+inputs/
+sam-tests/

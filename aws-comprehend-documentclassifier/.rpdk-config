@@ -1,0 +1,19 @@
+{
+    "artifact_type": "RESOURCE",
+    "typeName": "AWS::Comprehend::DocumentClassifier",
+    "language": "java",
+    "runtime": "java8",
+    "entrypoint": "software.amazon.comprehend.documentclassifier.HandlerWrapper::handleRequest",
+    "testEntrypoint": "software.amazon.comprehend.documentclassifier.HandlerWrapper::testEntrypoint",
+    "settings": {
+        "namespace": [
+            "software",
+            "amazon",
+            "comprehend",
+            "documentclassifier"
+        ],
+        "codegen_template_path": "default",
+        "protocolVersion": "2.0.0"
+    },
+    "executableEntrypoint": "software.amazon.comprehend.documentclassifier.HandlerWrapperExecutable"
+}
