@@ -15,3 +15,34 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 This project is licensed under the Apache-2.0 License.
 
+=======
+# aws-cloudformation-resource-providers-comprehend
+The CloudFormation Resource Provider Package For Amazon Comprehend
+
+# License
+This library is licensed under the Apache 2.0 License.
+
+# Development
+
+The RPDK will automatically generate the correct resource model from the schema whenever the project is built via Maven. You can also do this manually with the following command: `cfn generate`.
+
+> Please don't modify files under `target/generated-sources/rpdk`, as they will be automatically overwritten.
+
+The code uses [Lombok](https://projectlombok.org/), and [you may have to install IDE integrations](https://projectlombok.org/setup/overview) to enable auto-complete for Lombok-annotated classes.
+
+# Testing
+
+## Local SAM Testing
+Follow the CloudFormation [instructions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-walkthrough.html#resource-type-walkthrough-test) for performing SAM tests locally.
+
+Some simple example templates can be found under the `sam-test-templates` folder. You can create a `sam-tests` folder locally, then copy and adjust the template files accordingly for your own testing.
+
+### Prerequisites
+- AWS SAM CLI
+- Docker
+
+### Common Errors
+- `HandlerWrapper` class not found
+    - Make sure `mvn package` is run before running the test
+- Out of memory or timeout
+    - Increase the Lambda timeout and memory limit as appropriate in the `template.yml` file
